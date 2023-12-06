@@ -28,21 +28,21 @@ app.get('/rutine', (req: Request, res: Response) => {
 })
 
 //Institution
-app.use('/api/v1/institution_services', proxy('http://localhost:3001'));
-app.use('/api/v1/career_services', proxy('http://localhost:3001'));
-app.use('/api/v1/relation_Services', proxy('http://localhost:3001'));
+app.use('/api/v1/institution_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/institution'));
+app.use('/api/v1/career_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/career'));
+app.use('/api/v1/relation_Services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/careers/institution'));
 
 //Service User
-app.use('/api/v1/user_services', proxy('http://localhost:3002'));
+app.use('/api/v1/user_services', proxy('http://service1-env.eba-rfv62e7e.us-east-2.elasticbeanstalk.com/user'));
 
 //Service Schedule
-app.use('/api/v1/subject_services', proxy('http://localhost:3003'));
-app.use('/api/v1/schedule_services', proxy('http://localhost:3003'));
+app.use('/api/v1/subject_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/subject'));
+app.use('/api/v1/schedule_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/schedule'));
 
 //Service Event
-app.use('/api/v1/community_services', proxy('http://localhost:3004'));
-app.use('/api/v1/event_services', proxy('http://localhost:3004'));
-app.use('/api/v1/suscription_services', proxy('http://localhost:3004'));
+app.use('/api/v1/community_services', proxy('http://studygroup-service-env.eba-qrbgc3x2.us-east-2.elasticbeanstalk.com/community'));
+app.use('/api/v1/event_services', proxy('http://studygroup-service-env.eba-qrbgc3x2.us-east-2.elasticbeanstalk.com/event'));
+app.use('/api/v1/suscription_services', proxy('http://studygroup-service-env.eba-qrbgc3x2.us-east-2.elasticbeanstalk.com/suscription'));
 
 // Iniciar el servidor
 app.listen(port, () => {
