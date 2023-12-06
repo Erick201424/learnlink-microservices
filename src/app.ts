@@ -11,8 +11,8 @@ const app = express();
 const signale = new Signale();
 app.use(express.json());
 
-app.use('/subject_service', subjectRouter);
-app.use('/schedule_service', scheduleRouter);
+app.use('/subject', subjectRouter);
+app.use('/schedule', scheduleRouter);
 
 const PORT = process.env.PORT || 3003;
 
