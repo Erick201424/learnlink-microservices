@@ -23,6 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT;
 
+app.get('/rutine', (req: Request, res: Response) => {
+    res.status(200).send('Rutina ejecutáda con éxito');
+})
+
 //Institution
 app.use('/api/v1/institution_services', proxy('http://localhost:3001'));
 app.use('/api/v1/career_services', proxy('http://localhost:3001'));
