@@ -9,7 +9,7 @@ import {
 
 export const institutionRouter = Router();
 
-institutionRouter.get('/rutine', (req: Request, res: Response) => {
+institutionRouter.get('/rutine/test', (req: Request, res: Response) => {
     res.status(200).send('Rutina ejecutáda con éxito');
 })
 
