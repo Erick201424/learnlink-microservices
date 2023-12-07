@@ -28,12 +28,12 @@ app.get('/rutine', (req: Request, res: Response) => {
 })
 
 //Institution
-app.use('/api/v1/institution_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/institution'));
-app.use('/api/v1/career_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/career'));
-app.use('/api/v1/relation_Services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/careers/institution'));
+// app.use('/api/v1/institution_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/institution'));
+// app.use('/api/v1/career_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/career'));
+// app.use('/api/v1/relation_Services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/careers/institution'));
 
 //Service User
-app.use('/api/v1/user_services', proxy('http://service1-env.eba-rfv62e7e.us-east-2.elasticbeanstalk.com/user'));
+app.use('/api/v1/user_services', proxy('student.learnlinked.net'));
 
 //Service Schedule
 app.use('/api/v1/subject_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/subject'));
