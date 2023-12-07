@@ -4,8 +4,7 @@
   "description": "Instituion Services",
   "main": "app.ts",
   "scripts": {
-    "dev": "nodemon src/app.ts",
-    "start": "node dist/app.js",
+    "start": "npm install && nodemon src/app.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

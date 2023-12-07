@@ -14,12 +14,9 @@ const signale = new Signale();
 
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
-
-app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT;
 
@@ -28,21 +25,21 @@ app.get('/rutine', (req: Request, res: Response) => {
 })
 
 //Institution
-// app.use('/api/v1/institution_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/institution'));
-// app.use('/api/v1/career_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/career'));
-// app.use('/api/v1/relation_Services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/careers/institution'));
+app.use('/api/v1/institution_services', proxy('https://institutions.learnlinked.net'));
+app.use('/api/v1/career_services', proxy('https://institutions.learnlinked.net'));
+app.use('/api/v1/relation_services', proxy('https://institutions.learnlinked.net'));
 
 //Service User
-app.use('/api/v1/user_services', proxy('student.learnlinked.net'));
+app.use('/api/v1/user_services', proxy('http://localhost:3002'));
 
 //Service Schedule
-app.use('/api/v1/subject_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/subject'));
-app.use('/api/v1/schedule_services', proxy('http://schedule-service-env.eba-y3wtajve.us-east-2.elasticbeanstalk.com/schedule'));
+app.use('/api/v1/subject_services', proxy('http://localhost:3003'));
+app.use('/api/v1/schedule_services', proxy('http://localhost:3003'));
 
 //Service Event
-app.use('/api/v1/community_services', proxy('http://studygroup-service-env.eba-qrbgc3x2.us-east-2.elasticbeanstalk.com/community'));
-app.use('/api/v1/event_services', proxy('http://studygroup-service-env.eba-qrbgc3x2.us-east-2.elasticbeanstalk.com/event'));
-app.use('/api/v1/suscription_services', proxy('http://studygroup-service-env.eba-qrbgc3x2.us-east-2.elasticbeanstalk.com/suscription'));
+app.use('/api/v1/community_services', proxy('http://localhost:3004'));
+app.use('/api/v1/event_services', proxy('http://localhost:3004'));
+app.use('/api/v1/suscription_services', proxy('http://localhost:3004'));
 
 // Iniciar el servidor
 app.listen(port, () => {
