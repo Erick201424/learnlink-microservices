@@ -32,7 +32,7 @@ export class GetByIdEventUseCase {
             for (const userId of userIds) {
                 try {
                     console.log("Usuario a recuperar: ", userId);
-                    const studentData: AxiosResponse<any> = await axios.get(`http://localhost:3000/api/v1/user_services/user/${userId}`);
+                    const studentData: AxiosResponse<any> = await axios.get(`https://apigateway.learnlinked.net/api/v1/user_services/user/${userId}`);
 
                     if (studentData.status) {
                         usersData.push(studentData.data);
