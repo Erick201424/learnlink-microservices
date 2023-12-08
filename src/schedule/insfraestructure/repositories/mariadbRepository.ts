@@ -6,7 +6,7 @@ export class MariaDBRepository implements ScheduleRepository {
 
     async createSchedule(day: string, start_at: string, end_at: string, idsubject: number, iduser: number): Promise<Schedule | null> {
         try {
-            const sql = "INSERT INTO Schedule (day,start_at,end_at,idsubject,iduser) VALUES (?, ?, ?, ?, ?)";
+            const sql = "INSERT INTO schedule (day,start_at,end_at,idsubject,iduser) VALUES (?, ?, ?, ?, ?)";
             const params: any[] = [day, start_at, end_at, idsubject, iduser];
             const result = await query(sql, params);
 
