@@ -6,18 +6,24 @@ export class MariaDBRepository implements InstitutionRepository {
 
     async createInstitution(name: string, educationLevel: string, term: string): Promise<any> {
         try {
+            console.log("estoy dentro del repositori 1")
             const sql = "INSERT INTO institution (name, educationLevel, term) VALUES (?,?,?)";
+            console.log("estoy dentro del repositori 2")
             const params: any[] = [name, educationLevel, term];
+            console.log("estoy dentro del repositori 3")
             const result = await query(sql, params);
 
             if (result && result.insertId) {
+                console.log("estoy dentro del repositori 4")
                 const createdInstitution = new Institution(result.insertId, name, educationLevel, term);
                 return createdInstitution;
             } else {
+                console.log("estoy dentro del repositori 5")
                 throw new Error("Failed to create the category. No valid result obtained from the database.");
             }
 
         } catch (error) {
+            console.log("estoy dentro del repositori 6")
             console.error("Error adding institution:", error);
             return error as Error;
         }

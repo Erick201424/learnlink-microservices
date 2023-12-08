@@ -9,8 +9,13 @@ export class CreateInstitutionController {
 
         try {
             const createInstitution = await this.createInstitutionUseCase.execute(name, educationLevel, term);
+            console.log("estoy dentro del repositori 1")
+            console.log(createInstitution)
+            console.log(createInstitution.educationLevel)
 
             if (createInstitution) {
+                console.log("estoy dentro del controller 2")
+
                 return res.status(201).send({
                     status: "success",
                     data: {
