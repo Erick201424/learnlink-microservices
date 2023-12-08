@@ -1,4 +1,4 @@
-import { query } from "../../../../database/mariadb";
+import { query } from "../../../database/mariadb";
 import { Career } from "../../domain/entities/career";
 import { CareerRepository } from "../../domain/repositories/careerRepository";
 
