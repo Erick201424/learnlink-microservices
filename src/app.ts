@@ -30,16 +30,16 @@ app.use('/api/v1/career_services', proxy('https://institutions.learnlinked.net')
 app.use('/api/v1/relation_services', proxy('https://institutions.learnlinked.net'));
 
 //Service User
-app.use('/api/v1/user_services', proxy('http://localhost:3002'));
+app.use('/api/v1/user_services', proxy('https://student.learnlinked.net'));
 
 //Service Schedule
-app.use('/api/v1/subject_services', proxy('http://localhost:3003'));
-app.use('/api/v1/schedule_services', proxy('http://localhost:3003'));
+app.use('/api/v1/subject_services', proxy('https://schedule.learnlinked.net'));
+app.use('/api/v1/schedule_services', proxy('https://schedule.learnlinked.net'));
 
 //Service Event
-app.use('/api/v1/community_services', proxy('http://localhost:3004'));
-app.use('/api/v1/event_services', proxy('http://localhost:3004'));
-app.use('/api/v1/suscription_services', proxy('http://localhost:3004'));
+app.use('/api/v1/community_services', proxy('https://groups.learnlinked.net'));
+app.use('/api/v1/event_services', proxy('https://groups.learnlinked.net'));
+app.use('/api/v1/suscription_services', proxy('https://groups.learnlinked.net'));
 
 // Iniciar el servidor
 app.listen(port, () => {
