@@ -27,7 +27,7 @@ export class GetByIdEventController {
 
             try {
                 const studentsResponse = await axios.post(
-                    `http://localhost:3002/user/students/assitance`,
+                    `https://apigateway.learnlinked.net/api/v1/user_services/user/students/assitance`,
                     {
                         userIds: userIds,
                     }
