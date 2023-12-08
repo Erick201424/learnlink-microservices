@@ -1,4 +1,4 @@
-import { Student, StudentInformation, StudentLogin, securityInformation } from "../entities/student";
+import { Student, StudentInformation, StudentLogin, securityInformation, StudentByEvent } from "../entities/student";
 
 export interface StudentRepository {
     createStudent(
@@ -32,4 +32,5 @@ export interface StudentRepository {
 
     getAllStudents(): Promise<StudentInformation[] | null>;
 
+    getStudentsByEvent(usersByEvent: any[]): Promise<StudentByEvent[] | any>;
 }

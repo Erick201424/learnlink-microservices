@@ -23,7 +23,8 @@ export class CreateStudentController {
 
         try {
             const emailExist = await checkIfEmailExist(email);
-            if (emailExist) {
+            if (!emailExist) {
+                console.log("El correo electronico ya existe");
                 return res.status(409).send({
                     status: 'error',
                     message: 'El correo electrónico ya está registrado en la base de datos.',

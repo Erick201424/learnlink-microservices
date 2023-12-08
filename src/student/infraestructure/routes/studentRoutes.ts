@@ -6,7 +6,8 @@ import {
     validateEmailIfExistController,
     updatePasswordByEmailController,
     getStudentByIdController,
-    getAllStudentsController
+    getAllStudentsController,
+    getStudentsByEventController
 } from "../dependencies";
 import { validateToken, verifyToken } from "../../../helpers/token.helper";
 
@@ -19,6 +20,7 @@ studentRouter.get('/rutine', (req: Request, res: Response) => {
 studentRouter.post('/', createStudentController.execute.bind(createStudentController));
 studentRouter.post('/login', loginStudentController.execute.bind(loginStudentController));
 studentRouter.post('/recovery', validateEmailIfExistController.execute.bind(validateEmailIfExistController));
+studentRouter.post('/students/assitance', getStudentsByEventController.execute.bind(getStudentsByEventController));
 studentRouter.put('/recovery/password', updatePasswordByEmailController.execute.bind(updatePasswordByEmailController));
 studentRouter.put('/:id', validateToken, updateStudentController.execute.bind(updateStudentController));
 studentRouter.get('/:id', getStudentByIdController.execute.bind(getStudentByIdController));

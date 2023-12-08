@@ -1,5 +1,5 @@
 import { query } from "../../../database/mariadb";
-import { Student, StudentInformation, StudentLogin, securityInformation } from "../../domain/entities/student";
+import { Student, StudentInformation, StudentLogin, securityInformation, StudentByEvent } from "../../domain/entities/student";
 import { StudentRepository } from "../../domain/repositories/studentRepository";
 import { generateToken } from "../../../helpers/token.helper";
 import { comparePasswords, hashPassword } from "../../../helpers/bycript.service";
@@ -234,6 +234,29 @@ export class MariaDBRepository implements StudentRepository {
         } catch (error) {
             console.error("Error during student retrieval:", error);
             return null;
+        }
+    }
+
+    async getStudentsByEvent(usersByEvent: any[]): Promise<StudentByEvent[] | null> {
+        try {
+            let users: StudentByEvent[] = [];
+
+            for (const id of usersByEvent) {
+                const sql = "SELECT name, lastname, phone FROM students WHERE id = ? ;";
+                const params: any[] = [id];
+                const result = await query(sql, params);
+
+                if (result && result.length > 0) {
+                    users.push(result[0]);
+                } else {
+                    // Manejar el caso en el que la consulta no devuelve resultados
+                    console.warn(`No se encontraron resultados para el usuario con ID ${id}`);
+                }
+            }
+            return users;
+        } catch (error) {
+            // Lanzar el error nuevamente para que se maneje en capas superiores
+            throw error;
         }
     }
 
