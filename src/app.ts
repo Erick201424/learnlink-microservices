@@ -25,9 +25,9 @@ app.get('/rutine', (req: Request, res: Response) => {
 })
 
 //Institution
-app.use('/api/v1/institution_services', proxy('https://institution.learnlinked.net'));
-app.use('/api/v1/career_services', proxy('https://institution.learnlinked.net'));
-app.use('/api/v1/relation_services', proxy('https://institution.learnlinked.net'));
+app.use('/api/v1/institution_services', proxy('https://institutions.learnlinked.net'));
+app.use('/api/v1/career_services', proxy('https://institutions.learnlinked.net'));
+app.use('/api/v1/relation_services', proxy('https://institutions.learnlinked.net'));
 
 //Service User
 app.use('/api/v1/user_services', proxy('https://student.learnlinked.net'));
